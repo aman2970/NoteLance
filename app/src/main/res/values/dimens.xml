@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="one_hundred">100dp</dimen>
+    <dimen name="twenty_sp">20sp</dimen>
+    <dimen name="three_hundred">300dp</dimen>
+    <dimen name="five">5dp</dimen>
+    <dimen name="eight">8dp</dimen>
+    <dimen name="twenty_five_sp">25sp</dimen>
+    <dimen name="two_hundred_fifty">250dp</dimen>
+    <dimen name="ten">10dp</dimen>
+    <dimen name="fifteen">15dp</dimen>
+    <dimen name="fifty">50dp</dimen>
+</resources>

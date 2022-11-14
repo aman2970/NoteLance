@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NoteLance</string>
+    <string name="splash_textview">NOTELANCE</string>
 </resources>

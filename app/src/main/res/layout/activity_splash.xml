@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/off_white"
+    tools:context=".SplashActivity">
+
+    <ImageView
+        android:id="@+id/splash_logo"
+        android:layout_width="@dimen/one_hundred"
+        android:layout_height="@dimen/one_hundred"
+        android:src="@drawable/app_logo_round"
+        android:layout_marginTop="@dimen/two_hundred_fifty"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/splash_textview"
+        />
+
+    <TextView
+        android:id="@+id/splash_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/splash_textview"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="@dimen/twenty_five_sp"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/eight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/splash_logo"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
