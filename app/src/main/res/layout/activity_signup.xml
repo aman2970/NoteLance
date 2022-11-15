@@ -18,6 +18,27 @@
         />
 
     <EditText
+        android:id="@+id/signup_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty"
+        android:background="@drawable/edittext_bg"
+        android:hint="@string/enter_your_name"
+        android:padding="@dimen/ten"
+        android:drawableStart="@drawable/ic_person"
+        android:drawablePadding="@dimen/ten"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="@dimen/eighteen_sp"
+        android:inputType="textPersonName"
+        android:layout_marginTop="@dimen/twenty"
+        android:layout_marginStart="@dimen/twenty"
+        android:layout_marginEnd="@dimen/twenty"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_lock_icon"
+        />
+
+    <EditText
         android:id="@+id/signup_email"
         android:layout_width="match_parent"
         android:layout_height="@dimen/fifty"
@@ -35,7 +56,7 @@
         android:layout_marginEnd="@dimen/twenty"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signup_lock_icon"
+        app:layout_constraintTop_toBottomOf="@id/signup_name"
         />
 
     <EditText
