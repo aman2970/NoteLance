@@ -20,4 +20,5 @@
     <dimen name="eighty">80dp</dimen>
     <dimen name="thirty_five_sp">35sp</dimen>
     <dimen name="twenty_three_sp">23sp</dimen>
+    <dimen name="twenty_five">25dp</dimen>
 </resources>
