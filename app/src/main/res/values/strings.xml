@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">NoteLance</string>
     <string name="splash_textview">NOTELANCE</string>
+    <string name="enter_email_address">Enter Email Address</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="enter_your_password">Enter Your Password</string>
+    <string name="log_in">LOG IN</string>
+    <string name="new_user_dialog">New User! Want To Sign Up ?</string>
 </resources>

@@ -10,4 +10,12 @@
     <dimen name="ten">10dp</dimen>
     <dimen name="fifteen">15dp</dimen>
     <dimen name="fifty">50dp</dimen>
+    <dimen name="one_hundred_twenty">120dp</dimen>
+    <dimen name="one_hundred_ten">110dp</dimen>
+    <dimen name="two">2dp</dimen>
+    <dimen name="thirty">30dp</dimen>
+    <dimen name="eighteen_sp">18sp</dimen>
+    <dimen name="twenty">20dp</dimen>
+    <dimen name="fifteen_sp">15sp</dimen>
+    <dimen name="eighty">80dp</dimen>
 </resources>
