@@ -8,4 +8,8 @@
     <string name="new_user_dialog">New User! Want To Sign Up ?</string>
     <string name="sign_up">SIGN UP</string>
     <string name="already_have_account">Already Registered? Log In</string>
+    <string name="forgot_password">FORGOT PASSWORD</string>
+    <string name="click_here_to_recover">CLICK HERE TO RECOVER</string>
+    <string name="go_back">GO BACK TO LOGIN SCREEN</string>
+    <string name="dont_worry">Don\'t Worry We Are Here</string>
 </resources>
