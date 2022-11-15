@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignupActivity">
+
+    <ImageView
+        android:id="@+id/signup_lock_icon"
+        android:layout_width="@dimen/one_hundred_ten"
+        android:layout_height="@dimen/one_hundred_ten"
+        android:src="@drawable/lock"
+        android:layout_marginTop="@dimen/one_hundred"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/signup_email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty"
+        android:background="@drawable/edittext_bg"
+        android:hint="@string/enter_your_email"
+        android:padding="@dimen/ten"
+        android:drawableStart="@drawable/ic_mail"
+        android:drawablePadding="@dimen/ten"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="@dimen/eighteen_sp"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="@dimen/twenty"
+        android:layout_marginStart="@dimen/twenty"
+        android:layout_marginEnd="@dimen/twenty"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_lock_icon"
+        />
+
+    <EditText
+        android:id="@+id/login_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty"
+        android:background="@drawable/edittext_bg"
+        android:hint="@string/enter_your_password"
+        android:padding="@dimen/ten"
+        android:drawableStart="@drawable/ic_lock"
+        android:drawablePadding="@dimen/ten"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="@dimen/eighteen_sp"
+        android:inputType="textPassword"
+        android:layout_marginTop="@dimen/fifteen"
+        android:layout_marginStart="@dimen/twenty"
+        android:layout_marginEnd="@dimen/twenty"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_email"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signup_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:text="@string/sign_up"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="@dimen/fifteen_sp"
+        android:layout_marginTop="@dimen/twenty"
+        android:layout_marginStart="@dimen/twenty"
+        android:layout_marginEnd="@dimen/twenty"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_password"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/already_user_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:text="@string/already_have_account"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textSize="@dimen/fifteen_sp"
+        android:layout_marginTop="@dimen/twenty"
+        android:layout_marginStart="@dimen/twenty"
+        android:layout_marginEnd="@dimen/twenty"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_button"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
