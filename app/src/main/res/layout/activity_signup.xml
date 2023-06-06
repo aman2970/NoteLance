@@ -18,7 +18,7 @@
         />
 
     <EditText
-        android:id="@+id/signup_name"
+        android:id="@+id/nameEt"
         android:layout_width="match_parent"
         android:layout_height="@dimen/fifty"
         android:background="@drawable/edittext_bg"
@@ -39,7 +39,7 @@
         />
 
     <EditText
-        android:id="@+id/signup_email"
+        android:id="@+id/emailEt"
         android:layout_width="match_parent"
         android:layout_height="@dimen/fifty"
         android:background="@drawable/edittext_bg"
@@ -56,11 +56,11 @@
         android:layout_marginEnd="@dimen/twenty"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signup_name"
+        app:layout_constraintTop_toBottomOf="@id/nameEt"
         />
 
     <EditText
-        android:id="@+id/login_password"
+        android:id="@+id/passwordEt"
         android:layout_width="match_parent"
         android:layout_height="@dimen/fifty"
         android:background="@drawable/edittext_bg"
@@ -77,11 +77,11 @@
         android:layout_marginEnd="@dimen/twenty"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signup_email"
+        app:layout_constraintTop_toBottomOf="@id/emailEt"
         />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/signup_button"
+        android:id="@+id/signupButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_background"
@@ -95,10 +95,10 @@
         android:layout_marginEnd="@dimen/twenty"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_password"/>
+        app:layout_constraintTop_toBottomOf="@id/passwordEt"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/already_user_button"
+        android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_background"
@@ -112,7 +112,7 @@
         android:layout_marginEnd="@dimen/twenty"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/signup_button"/>
+        app:layout_constraintTop_toBottomOf="@id/signupButton"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "577215573634",
+    "project_id": "notelance",
+    "storage_bucket": "notelance.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577215573634:android:8ae0ba326c74ebc1628e9b",
+        "android_client_info": {
+          "package_name": "com.example.notelance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577215573634-qvj20uh33rs5qn12s92j2mr0707jp9rh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZG3FKnMF1VbbIMteKdhTM4I_hirZ_Rho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577215573634-qvj20uh33rs5qn12s92j2mr0707jp9rh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

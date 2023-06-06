@@ -19,7 +19,7 @@
         />
 
     <EditText
-        android:id="@+id/login_email"
+        android:id="@+id/loginEmailEt"
         android:layout_width="match_parent"
         android:layout_height="@dimen/fifty"
         android:background="@drawable/edittext_bg"
@@ -40,7 +40,7 @@
         />
 
     <EditText
-        android:id="@+id/login_password"
+        android:id="@+id/loginPasswordEt"
         android:layout_width="match_parent"
         android:layout_height="@dimen/fifty"
         android:background="@drawable/edittext_bg"
@@ -57,11 +57,11 @@
         android:layout_marginEnd="@dimen/twenty"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_email"
+        app:layout_constraintTop_toBottomOf="@id/loginEmailEt"
         />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login_button"
+        android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_background"
@@ -75,10 +75,10 @@
         android:layout_marginEnd="@dimen/twenty"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_password"/>
+        app:layout_constraintTop_toBottomOf="@id/loginPasswordEt"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/new_user_button"
+        android:id="@+id/newUserButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/button_background"
@@ -92,7 +92,7 @@
         android:layout_marginEnd="@dimen/twenty"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login_button"/>
+        app:layout_constraintTop_toBottomOf="@id/loginButton"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
