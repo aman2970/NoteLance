@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.notelance.databinding.ActivityCreateNoteBinding;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -44,6 +45,7 @@ public class CreateNoteActivity extends AppCompatActivity {
             }else if(description.isEmpty()){
                 Snackbar.make(view,"Please enter description",Snackbar.LENGTH_SHORT).show();
             }else{
+                binding.progressBar.setVisibility(View.VISIBLE);
                 DocumentReference documentReference = firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("myNotes").document();
                 Map<String ,Object> note = new HashMap<>();
                 note.put("title",title);
@@ -51,7 +53,8 @@ public class CreateNoteActivity extends AppCompatActivity {
                 documentReference.set(note).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Snackbar.make(view,"Note created successfully",Snackbar.LENGTH_LONG).show();
+                        Toast.makeText(CreateNoteActivity.this, "Note created successfully", Toast.LENGTH_SHORT).show();
+                        binding.progressBar.setVisibility(View.GONE);
                         Intent intent = new Intent(CreateNoteActivity.this,NotesActivity.class);
                         startActivity(intent);
                         finish();
@@ -59,7 +62,8 @@ public class CreateNoteActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Snackbar.make(view,"Failed to create note",Snackbar.LENGTH_LONG).show();
+                        binding.progressBar.setVisibility(View.GONE);
+                        Toast.makeText(CreateNoteActivity.this, "Failed to create note", Toast.LENGTH_SHORT).show();
                     }
                 });
 

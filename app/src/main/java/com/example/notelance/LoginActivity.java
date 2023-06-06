@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.notelance.databinding.ActivityLoginBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -49,6 +50,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(mail.isEmpty() || password.isEmpty()){
                     Snackbar.make(view,"All fields are required",Snackbar.LENGTH_SHORT).show();
                 }else{
+                    binding.progressBar.setVisibility(View.VISIBLE);
                     //login the user
                     firebaseAuth.signInWithEmailAndPassword(mail,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
@@ -56,7 +58,8 @@ public class LoginActivity extends AppCompatActivity {
                             if(task.isSuccessful()){
                                 checkMailVerification();
                             }else{
-                                Snackbar.make(view,"Account does not exist",Snackbar.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Account does not exist", Toast.LENGTH_SHORT).show();
+                                binding.progressBar.setVisibility(View.INVISIBLE);
                             }
 
                         }
@@ -78,13 +81,12 @@ public class LoginActivity extends AppCompatActivity {
     private void checkMailVerification() {
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
         if(Objects.requireNonNull(firebaseUser).isEmailVerified()){
-            View view = getWindow().getDecorView().getRootView();
-            Snackbar.make(view,"Logged In",Snackbar.LENGTH_SHORT).show();
+            Toast.makeText(this, "Logged In", Toast.LENGTH_SHORT).show();
             finish();
             startActivity(new Intent(LoginActivity.this,NotesActivity.class));
         }else{
-            View view = getWindow().getDecorView().getRootView();
-            Snackbar.make(view,"Verify your mail first",Snackbar.LENGTH_SHORT).show();
+            binding.progressBar.setVisibility(View.INVISIBLE);
+            Toast.makeText(this, "Verify your mail first", Toast.LENGTH_SHORT).show();
             firebaseAuth.signOut();
         }
     }

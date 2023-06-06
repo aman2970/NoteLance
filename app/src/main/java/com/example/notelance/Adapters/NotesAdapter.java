@@ -2,17 +2,14 @@ package com.example.notelance.Adapters;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.cardview.widget.CardView;
@@ -22,11 +19,19 @@ import com.example.notelance.EditNoteActivity;
 import com.example.notelance.Models.FirebaseModel;
 import com.example.notelance.NoteDetailsActivity;
 import com.example.notelance.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.checkerframework.checker.units.qual.A;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder> {
@@ -51,38 +56,40 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.MyViewHolder
 //        int colorcode = getRandomColor();
 //        holder.noteCv.setBackgroundColor(holder.itemView.getResources().getColor(colorcode,null));
 
+        String docId = firebaseModelList.get(position).getId();
+
         holder.noteCv.setOnClickListener(view -> {
             //we have to open the note detail activity
+            Log.d("docid>>>>",docId);
             Intent intent = new Intent(view.getContext(), NoteDetailsActivity.class);
+            intent.putExtra("title",firebaseModelList.get(position).getTitle());
+            intent.putExtra("description",firebaseModelList.get(position).getDescription());
+            intent.putExtra("docId",docId);
             view.getContext().startActivity(intent);
         });
 
         holder.menuButton.setOnClickListener(view -> {
             PopupMenu popupMenu = new PopupMenu(view.getContext(),view);
             popupMenu.setGravity(Gravity.END);
-            popupMenu.getMenu().add("Edit").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem menuItem) {
-                    Intent  intent = new Intent(view.getContext(), EditNoteActivity.class);
-                    view.getContext().startActivity(intent);
-                    return false;
-                }
+            popupMenu.getMenu().add("Edit").setOnMenuItemClickListener(menuItem -> {
+                Intent  intent = new Intent(view.getContext(), EditNoteActivity.class);
+                intent.putExtra("title",firebaseModelList.get(position).getTitle());
+                intent.putExtra("description",firebaseModelList.get(position).getDescription());
+                intent.putExtra("docId",docId);
+                view.getContext().startActivity(intent);
+                return false;
             });
 
-            popupMenu.getMenu().add("Delete").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem menuItem) {
-                    Toast.makeText(context, "This note is deleted", Toast.LENGTH_SHORT).show();
-                    return false;
-                }
+            popupMenu.getMenu().add("Delete").setOnMenuItemClickListener(menuItem -> {
+                DocumentReference documentReference = FirebaseFirestore.getInstance().collection("notes").document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid())).collection("myNotes").document(docId);
+                documentReference.delete().addOnSuccessListener(unused -> Toast.makeText(context, "This note is deleted", Toast.LENGTH_SHORT).show()).addOnFailureListener(e -> Toast.makeText(context, "Failed to delete", Toast.LENGTH_SHORT).show());
+                return false;
             });
             popupMenu.show();
         });
 
         holder.titleTv.setText(firebaseModelList.get(position).getTitle());
         holder.contentTv.setText(firebaseModelList.get(position).getDescription());
-
-
     }
 
     @Override

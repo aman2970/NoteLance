@@ -18,6 +18,7 @@ import com.example.notelance.Models.FirebaseModel;
 import com.example.notelance.databinding.ActivityNotesBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -47,32 +48,33 @@ public class NotesActivity extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
         firebaseModelList = new ArrayList<>();
 
-        Query query = firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("myNotes").orderBy("title",Query.Direction.ASCENDING);
+        Query query = firebaseFirestore.collection("notes").document(firebaseUser.getUid()).collection("myNotes").orderBy("title", Query.Direction.ASCENDING);
+
 
         query.get().addOnCompleteListener(task -> {
-            if(task.isSuccessful()) {
+            if (task.isSuccessful()) {
                 firebaseModelList.clear();
-                for (QueryDocumentSnapshot document : task.getResult()){
+                for (QueryDocumentSnapshot document : task.getResult()) {
                     String title = document.getString("title");
                     String description = document.getString("description");
-                    FirebaseModel firebaseModel = new FirebaseModel(title,description);
+                    String documentId = document.getId();
+                    FirebaseModel firebaseModel = new FirebaseModel(title, description,documentId);
                     firebaseModelList.add(firebaseModel);
                 }
 
                 binding.notesRv.setHasFixedSize(true);
-                binding.notesRv.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
-                notesAdapter = new NotesAdapter(this,firebaseModelList);
+                binding.notesRv.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+                notesAdapter = new NotesAdapter(this, firebaseModelList);
                 binding.notesRv.setAdapter(notesAdapter);
 
-            }else{
-
+            } else {
                 Log.d("Firebase>>>>", "Error getting documents: ", task.getException());
             }
 
         });
 
         binding.createButton.setOnClickListener(view -> {
-            Intent intent = new Intent(this,CreateNoteActivity.class);
+            Intent intent = new Intent(this, CreateNoteActivity.class);
             startActivity(intent);
         });
 
@@ -80,16 +82,16 @@ public class NotesActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu,menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(this,LoginActivity.class);
+                Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 finish();
         }
